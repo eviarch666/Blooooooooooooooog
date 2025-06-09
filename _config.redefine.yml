@@ -204,17 +204,27 @@ navbar:
       path: / 
       icon: fa-regular fa-house # can be empty
 
+    # Archives: 
+    #   path: /archives 
+    #   icon: fa-regular fa-archive # can be empty
+
+    Masonry:
+      icon: fa-solid fa-image #图标
+      path: /masonry/
+
+    Bookmarks:
+      icon: fa-solid fa-bookmark #图标
+      path: /bookmarks/
+
     Friends:
-      path: /friends
+      path: /links/
       icon: fa-solid fa-rss
-    Archives: 
-      path: /archives 
-      icon: fa-regular fa-archive # can be empty
 
     About: # 一级菜单栏名称
       icon: fa-regular fa-user # Fontawesome图标名称（可选）
       submenus: # 二级菜单栏
         Github: https://github.com/eviarch666
+
 
     # Status: 
     #   path: https://status.ohevan.com/
@@ -257,10 +267,10 @@ home:
         path: /archives 
         icon: fa-regular fa-archive # can be empty
       Tags: 
-        path: /tags 
+        path: /tags/
         icon: fa-regular fa-tags # can be empty
       Categories: 
-        path: /categories 
+        path: /categories/
         icon: fa-regular fa-folder # can be empty
       # ...... # you can add more
   # Article date format

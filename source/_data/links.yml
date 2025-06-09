@@ -1,0 +1,9 @@
+- links_category: "海内存知己，天涯若比邻"
+  has_thumbnail: false
+  list:
+      - name: Shetty
+        link: https://blog.shettydev.com/
+        description: 描述
+        avatar: 头像
+        thumbnail: 预览图（has_thumbnail 为 true 时才需要）
+ 
