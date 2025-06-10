@@ -128,10 +128,11 @@ home_banner:
     light: /images/wallhaven-wqery6-light.webp # light mode
     dark: /images/wallhaven-wqery6-dark.webp # dark mode
   # Home banner title
-  title: "Eviiiiiiiiiiiiiiiiiiiiiarch"
+  title: "It's Eviarch's blog,sharing things about study and daily life"
   # Home banner subtitle
   subtitle:
-    text: ["求知若渴，虚心若愚", "你所做的事情或许无人在意，但只要你仍追求完美，你就终将掌握连专家也望而兴叹的技能"] # subtitle text, array
+    text: ["求知若渴，虚心若愚", "你所做的事情或许无人在意，但只要你仍追求完美，你就终将掌握连专家也望而兴叹的技能", 
+          "\"拉绳子或者割断绳索，但无论你做什么，都不要犹豫\" --Death Stranding", "共赴山海"] # subtitle text, array
     hitokoto:  # 一言配置
       enable: false # Whether to enable hitokoto
       show_author: false # Whether to show author

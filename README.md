@@ -8,6 +8,25 @@ This is Eviarch’s personal blog.
 
 https://blog.eviarch.com
 
+## File tree
+
+~~~ bash
+source
+├─bookmarks
+├─categories
+├─links
+├─masonry
+├─post_images			 # blog posts' markdown file image folder
+│  ├─post_one_image_folder
+│  └─post_two_image_folder
+├─tags
+├─_data
+|  ├─bookmarks.yml		# bookmarks' file
+|  ├─links.yml			# friendship links' file
+|  └─masonry.yml		# masonrys' file(haven't use yet)
+└─_posts			# blog posts' markdown file store here
+~~~
+
 ## License
 
 - this project use MIT license
