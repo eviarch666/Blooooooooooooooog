@@ -132,7 +132,9 @@ home_banner:
   # Home banner subtitle
   subtitle:
     text: ["求知若渴，虚心若愚", "你所做的事情或许无人在意，但只要你仍追求完美，你就终将掌握连专家也望而兴叹的技能", 
-          "\"拉绳子或者割断绳索，但无论你做什么，都不要犹豫\" --Death Stranding", "共赴山海"] # subtitle text, array
+          "\"拉绳子或者割断绳索，但无论你做什么，都不要犹豫\" --Death Stranding", "共赴山海",
+          "回首望来路，尘埃映星河 --Zachary", "天空越黑，星星越亮 --小农帽",
+          "青春就像月亮，时圆时缺，但是只要圆过一次，我们的青春就没有遗憾 --Zachary"] # subtitle text, array
     hitokoto:  # 一言配置
       enable: false # Whether to enable hitokoto
       show_author: false # Whether to show author
