@@ -3,6 +3,6 @@
   list:
       - name: Shetty
         link: https://blog.shettydev.com/
-        description: Share mt ideas
+        description: Share my ideas
         avatar: https://avatars.githubusercontent.com/u/72240633?s=400&u=7b32b5df0b0d4fa852f579e82cf78b403fa98b67&v=4
         thumbnail: 预览图（has_thumbnail 为 true 时才需要）
