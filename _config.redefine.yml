@@ -224,7 +224,7 @@ navbar:
     About: # 一级菜单栏名称
       icon: fa-regular fa-user # Fontawesome图标名称（可选）
       submenus: # 二级菜单栏
-        Github: https://github.com/eviarch666
+        Blog Repo: https://github.com/eviarch666/Blooooooooooooooog
 
 
     # Status: 
