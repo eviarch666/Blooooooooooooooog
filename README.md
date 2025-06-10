@@ -21,9 +21,9 @@ source
 │  └─post_two_image_folder
 ├─tags
 ├─_data
-|  ├─bookmarks.yml		# bookmarks' file
-|  ├─links.yml			# friendship links' file
-|  └─masonry.yml		# masonrys' file(haven't use yet)
+│  ├─bookmarks.yml		# bookmarks' file
+│  ├─links.yml			# friendship links' file
+│  └─masonry.yml		# masonrys' file(haven't use yet)
 └─_posts			# blog posts' markdown file store here
 ~~~
 
