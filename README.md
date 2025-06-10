@@ -1,10 +1,10 @@
 # Eviarch's blog
 
-## description
+## Description
 
 This is Eviarch’s personal blog.
 
-## Blog IP
+## Blog URL
 
 https://blog.eviarch.com
 
