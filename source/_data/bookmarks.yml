@@ -1,19 +1,33 @@
-- category: 分类名称
-  icon: fa-folder # 分类的图标，使用 FontAwesome 图标
+# - category: 分类名称
+#   icon: fa-folder # 分类的图标，使用 FontAwesome 图标
+#   items:
+#     - name: 书签名称
+#       link: 链接地址 # 从 url 改为 link
+#       description: 书签描述
+#       image: 图标链接 # 从 icon 改为 image，用于显示网站图标
+
+- category: Accounts
+  icon: fa-user # 账户分类的图标
   items:
-    - name: 书签名称
-      link: 链接地址 # 从 url 改为 link
-      description: 书签描述
-      image: 图标链接 # 从 icon 改为 image，用于显示网站图标
- 
-- category: 工具
+    - name: Google Account
+      link: https://accounts.google.com
+      description: 谷歌账户
+      image: https://accounts.google.com/favicon.ico
+
+    - name: Gmail
+      link: https://mail.google.com/
+      description:  谷歌邮箱
+      image: https://mail.google.com/favicon.ico
+
+    - name: Google Translate
+      link: https://translate.google.com/
+      description: 谷歌翻译
+      image: https://translate.google.com/favicon.ico
+
+- category: Tools
   icon: fa-tools # 工具分类的图标
   items:
     - name: ChatGPT
       link: https://chat.openai.com # 书签链接地址
       description: OpenAI 的 AI 对话助手
       image: https://chat.openai.com/favicon.ico # 网站图标地址
-    - name: Claude
-      link: https://www.anthropic.com/
-      description: Anthropic 的 AI 对话助手
-      image: https://www.anthropic.com/favicon.ico
