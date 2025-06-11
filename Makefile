@@ -8,10 +8,13 @@ dependencies:
 		npm install hexo-cli -g; \
 	fi
 	npm install
+	bash .scripts/install-pandoc.sh
+
+PANDOC_PATH := tmp/bin
 
 deploy: dependencies
 	@echo "Building site..."
-	hexo generate
+	PATH=$(PATH):$(pwd)/$(PANDOC_PATH) hexo generate
 
 preview:
 	@echo "Starting server..."
