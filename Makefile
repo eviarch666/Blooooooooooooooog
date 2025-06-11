@@ -7,10 +7,6 @@ dependencies:
 		echo "Installing Hexo..."; \
 		npm install hexo-cli -g; \
 	fi
-	@if ! command -v pandoc > /dev/null; then \
-		echo "Installing pandoc..."; \
-		npm install pandoc-bin -g; \
-	fi
 	npm install
 
 deploy: dependencies
