@@ -3,19 +3,20 @@ title: IMU四元数解算
 date: 2025-06-10 17:19:32
 tags: ["Hardware", "Eular Angle", "Quaternion"]
 categories: [Hardware]
-thumbnail: ""
+thumbnail: "/post_images/IMU四元数解算/机械IMU.jpeg"
 ---
 
 ## 前言
+图片来自于[维基百科](https://upload.wikimedia.org/wikipedia/commons/5/5d/Centrale-intertielle_missile_S3_Musee_du_Bourget_P1010652.JPG)
 {% notel yellow Warn %}
 本文章有基础的理论推导，过程可能存在不严谨的地方，着重对四元数的**实际应用**做讨论
 此文章的观点或代码仍有瑕疵，若您有更好的解决方案或更正建议欢迎留言讨论
 {% endnotel %}
 {% notel yellow Warn %}
-由于网页渲染出来的latex公式无法正确换行，本文件将用HTML代替latex公式，这也就导致本文件源码可读性非常差，若需要阅读源文件还请看notes文件夹下的markdown文件。
+由于网页渲染出来的latex公式无法正确换行，本文件将用HTML代替latex公式，这也就导致本文件源码可读性非常差，若需要阅读源文件还请看notes文件夹下的[**markdown文件**](https://github.com/eviarch666/Blooooooooooooooog/blob/main/notes/IMU%E5%9B%9B%E5%85%83%E6%95%B0%E8%A7%A3%E7%AE%97.md)。
 {% endnotel %}
 {% notel green  info %}
-本文前部分是关于理论推导，内容比较枯燥。若只关注实际应用请跳转到后文，查阅[相关代码](#实际应用于代码中)
+本文前部分是关于理论推导，内容比较枯燥。若只关注实际应用请跳转到后文，查阅[**相关代码**](#实际应用于代码中)
 本文的代码已通过验证，MCU为AI8051，IMU为imu660ra。角速度通过死区 + 去静态零飘抑制。实际测试静态零漂约为0.046度/秒
 {% endnotel %}
 
@@ -209,7 +210,7 @@ q_z *= recipNorm;
 
 ### 计算欧拉角
 
-我们已经获得单位四元数了，根据上文的[转换公式](#从四元数到欧拉角)可以求得欧拉角
+我们已经获得单位四元数了，根据上文的[**转换公式**](#从四元数到欧拉角)可以求得欧拉角
 
 ~~~c
 // 计算欧拉角
