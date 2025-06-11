@@ -10,11 +10,12 @@ dependencies:
 	npm install
 	bash .scripts/install-pandoc.sh
 
+PATH := $(pwd)/$(PANDOC_PATH):$(PATH)
 PANDOC_PATH := tmp/bin
 
 deploy: dependencies
 	@echo "Building site..."
-	PATH=$(PATH):$(pwd)/$(PANDOC_PATH) hexo generate
+	hexo generate
 
 preview:
 	@echo "Starting server..."
