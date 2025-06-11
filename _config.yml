@@ -103,7 +103,12 @@ theme: redefine
 deploy:
   type: ''
 
-all_minifier: true
+all_minifier: false
+
+server:
+  port: 4000
+  compress: true
+  header: true
 
 mathjax:
     tags: none # or 'ams' or 'all'
@@ -112,3 +117,26 @@ mathjax:
     normal_width: 0.6 # relative normal (monospace) width
     append_css: true # add CSS to every page
     every_page: false # if true, every page will be rendered by mathjax regardless the `mathjax` setting in Front-matter of each article
+
+# markdown_it_plus:
+#   highlight: true
+#   html: true
+#   xhtmlOut: true
+#   breaks: false
+#   langPrefix:
+#   linkify: true
+#   typographer: false
+#   quotes:
+#   plugins:
+#     - plugin:
+#         name: markdown-it-mark
+#         enable: false
+
+pandoc:
+  extensions:
+    - -implicit_figures # 防止在图片后面将方括号里的东西作为caption。
+    - +gfm_auto_identifiers+angle_brackets_escapable # Not available in pandoc 1.16
+    - +pipe_tables+raw_html+fenced_code_blocks
+    - -ascii_identifiers+backtick_code_blocks+autolink_bare_uris
+    - +intraword_underscores+strikeout+hard_line_breaks+emoji
+    - +shortcut_reference_links

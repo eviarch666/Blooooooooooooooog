@@ -23,30 +23,19 @@ mathjax: true
 
 对于一个复数，可以写成如下形式
 $$
+\begin{align*}
 z = \rho \cos \alpha + i \rho \sin \alpha
+\end{align*}
+$$
+,运用欧拉公式(Euler's formula) $\rho e^{i \alpha} = \rho \cos \alpha + i \rho \sin \alpha$ 可将三角函数形式的复数转为指数形式 $z = \rho e ^ {i \alpha}$ 对该复平面内的向量进行旋转操作，假设旋转角度为$\phi$,则旋转过程如下: 
+
+$$
+\begin{align*}
+z * e^{i \phi} = \rho e ^ {i \alpha} * e^{i \phi} = \rho e^{i (\alpha + \phi)}
+\end{align*}
 $$
 
-运用欧拉公式(Euler's formula)
-$$
-\rho e^{i \alpha} = \rho \cos \alpha + i \rho \sin \alpha 
-$$
-可将三角函数形式的复数转为指数形式
-$$
-z = \rho e ^ {i \alpha}
-$$
-对该复平面内的向量进行旋转操作，假设旋转角度为
-$$
-\phi
-$$
-则旋转过程如下
-$$
-z * e^{i \phi} = \rho e ^ {i \alpha} * e^{i \phi} = \rho e^{i (\alpha + \phi)}
-$$
-该旋转为一个自由度下的变化，对于实际应用来说，一个物品在空间中的矢量有三个自由度。因此我们需要四个变量来描述角度的变化，其中一个实数变量表示旋转的角度大小，剩下三个为虚数，体现旋转轴的方向。我们将这样的四个变量记作：
-$$
-q = (w,x,y,z)
-$$
-对于一个旋转角度为*θ*的四元数可表示为：
+该旋转为一个自由度下的变化，对于实际应用来说，一个物品在空间中的矢量有三个自由度。因此我们需要四个变量来描述角度的变化，其中一个实数变量表示旋转的角度大小，剩下三个为虚数，体现旋转轴的方向。我们将这样的四个变量记作： $q = (w,x,y,z)$ 对于一个旋转角度为*θ*的四元数可表示为：
 $$
 q = (\cos{\frac{\theta }{2} }, u_{x} \sin{\frac{\theta}{2}}, u_{y} \sin{\frac{\theta}{2}}, u_{z} \sin{\frac{\theta}{2}})
 $$
@@ -57,11 +46,15 @@ $$
 
 为了方便，我们有时将其简写为：
 $$
+\begin{align*}
 q = (w,\vec{v})
+\end{align*}
 $$
 其中
 $$
+\begin{align*}
 \vec{v} = (x, y, z)
+\end{align*}
 $$
 
 
@@ -74,11 +67,15 @@ $$
 
 并不是所有的四元数都能表示三维空间中的一个旋转，只有单位四元数才能正确表示一个旋转。所谓单位四元数即：
 $$
+\begin{align*}
 q = (m,\vec{v}) = (w,x,y,x)(满足w^2 + x^2 + y^2 + z^2 = 1)
+\end{align*}
 $$
 对一个3D向量：
 $$
+\begin{align*}
 \vec{p} = (p_{x}, p_{y}, p_{z})
+\end{align*}
 $$
 其旋转后的向量可表示为：
 $$
@@ -91,35 +88,40 @@ $$
 
 设：
 $$
+\begin{align*}
 \vec{q} = w + xi + yj + zk, \quad \vec{p} = 0 + p_{x}i + p_{y}j + p_{z}k
+\end{align*}
 $$
 则
 $$
-\vec{q}.\vec{p} = (w + xi + yj + zk)(0 + p_{x}i + + p_{y}j + p_{z}k) \\ =(- xp_{x} - yp_{y} - zp_{z}) + (wp_{x} + yp_{z} - zp_{y})i + (wp_{y} + zp_{x} - xp_{z})j + (wp_{z} + xp_{y} - yp_{x})k
+\begin{aligned}
+\vec{q}.\vec{p} &= (w + xi + yj + zk)(0 + p_{x}i + + p_{y}j + p_{z}k)\\ 
+                  &=(- xp_{x} - yp_{y} - zp_{z}) + (wp_{x} + yp_{z} - zp_{y})i + (wp_{y} + zp_{x} - xp_{z})j + (wp_{z} + xp_{y} - yp_{x})k
+\end{aligned}
 $$
 记
 $$
 \begin{cases}
 a = - xp_{x} - yp_{y} - zp_{z}	\\
 b = wp_{x} + yp_{z} - zp_{y}  	\\
-c = wp_{y} + zp_{x} - xp_{z}	\\
+c = wp_{y} + zp_{x} - xp_{z}	   \\
 d = wp_{z} + xp_{y} - yp_{x}
 \end{cases}
 $$
 **(2) 计算 (q⋅p)⋅q−1**
 $$
-\vec{q}^{-1} = w - xi - yj - zk,所以：\\
-\begin{align}
+\begin{align*}
+&\vec{q}^{-1} = w - xi - yj - zk,所以：\\
 &(a + bi + cj + dk)(w - xi - yj - zk)\\
 &展开后为：\\ 
-\end{align} \\
-\left\{
+&\left\{
 \begin{aligned}
 p^{’}_{x} = (-ax + bw - cz + dy)	\\
 p^{’}_{y} = (-ay + bz + cw - dx)	\\
 p^{’}_{z} = (-az - by + cx + dw)	\\
 \end{aligned}
 \right.
+\end{align*}
 $$
 **(3)整理成矩阵形式**
 
@@ -151,41 +153,43 @@ $$
    
 
    1. 对于一个旋转矩阵 *R*(*t*)，其时间导数满足：
-
-      $$
-      R^{’} = [\omega]_{\times}R	\\
-      其中，[\omega]_{\times}为\omega的反对称矩阵：	\\
-      [\omega]_{\times} = 
-      \begin{bmatrix}
-       0 & - \omega_{z} & \omega_{y} \\
-       \omega_{z} & 0 & - \omega_{x} \\
-       - \omega_{y} & \omega_{x} & 0
-      \end{bmatrix}
-      $$
+   $$
+   \begin{gather*}
+   R^{’} = [\omega]_{\times}R	\\\\
+   其中，[\omega]_{\times}为\omega的反对称矩阵:\\\\
+   [\omega]_{\times} = 
+   \begin{bmatrix}
+      0 & -\omega_{z} & \omega_{y} \\
+      \omega_{z} & 0 & -\omega_{x} \\
+      -\omega_{y} & \omega_{x} & 0
+   \end{bmatrix}
+   \end{gather*}
+   $$
    
    2. 四元数的倒数
    
       通过微分 *R* 并利用 *R=[*ω*]×R*，可以推导出四元数的导数 *q’*。这个过程涉及大量的代数运算，最终得到：
       $$
+      \begin{gather*}
       q^{’} = \frac{1}{2} q \times \omega_{q}	\\
       其中\omega_{q}是一个纯四元数（无实部），表示为：	\\
       \omega_{q} = [0, \omega_{x}, \omega_{y}, \omega_{z}]
+      \end{gather*}
       $$
 
 ---
 
 ## 从角速度到四元数
 
+假设当前四元数为$q = (w, x, y, z)$,角速度为$\omega = (0, \omega_{x}, \omega_{y}, \omega_{z})$,则四元数倒数为：	$q^{’} = \frac{1}{2} q \times \omega_{q}$ ，展开运算可得：
 $$
-假设当前四元数为q = (w, x, y, z),角速度为\omega = (0, \omega_{x}, \omega_{y}, \omega_{z}),则四元数倒数为：	\\
-q^{’} = \frac{1}{2} q \times \omega_{q}									\\
-展开运算可得：															   \\
-w^{’} = \frac{1}{2} ( - x\omega_{x} - y\omega_{y} - z\omega_{z})		\\
-x^{’} = \frac{1}{2} ( + w\omega_{x} + y\omega_{z} - z\omega_{y})		\\
-y^{’} = \frac{1}{2} ( + w\omega_{y} - x\omega_{z} + z\omega_{x})		\\
-z^{’} = \frac{1}{2} ( + w\omega_{z} + x\omega_{y} - y\omega_{x})		\\
+\begin{align*}
+w^{’} &= \frac{1}{2} ( - x\omega_{x} - y\omega_{y} - z\omega_{z})		\\
+x^{’} &= \frac{1}{2} ( + w\omega_{x} + y\omega_{z} - z\omega_{y})		\\
+y^{’} &= \frac{1}{2} ( + w\omega_{y} - x\omega_{z} + z\omega_{x})		\\
+z^{’} &= \frac{1}{2} ( + w\omega_{z} + x\omega_{y} - y\omega_{x})		\\
+\end{align*}
 $$
-
 这些导数被用来更新四元数的各个分量，然后进行归一化处理，将会被用于后续的代码中
 
 ---
@@ -206,32 +210,34 @@ $$
 > **注意**：必须按固定顺序旋转（如 **Z→Y→X** 或 **Y→X→Z**），不同顺序会得到不同结果。
 
 此处我们使用**ZYX顺序的旋转矩阵**，旋转矩阵 R*R* 由三个基本旋转矩阵相乘得到：
+
 $$
-R = R_{z}(\psi) . R_{y}(\theta) . R_{x}(\phi)	\\
+\begin{gather*}
+R = R_{z}(\psi).R_{y}(\theta).R_{x}(\phi)	\\
 R_{z}(\psi) = \begin{bmatrix}
  \cos\psi & -\sin\psi & 0 \\
  \sin\psi & \cos\psi & 0 \\
  0 & 0 & 1
 \end{bmatrix},\quad
-
 R_{y}(\theta) = \begin{bmatrix}
  \cos\theta & 0 & \sin\theta \\
  0 & 1 & 0 \\
- - \sin\theta & 0 & \cos\theta
+ -\sin\theta & 0 & \cos\theta
 \end{bmatrix},\quad
-
 R_{x}(\phi) = \begin{bmatrix}
  1 & 0 & 0 \\
- 0 & \cos\phi & - \sin\phi \\
+ 0 & \cos\phi & -\sin\phi \\
  0 & \sin\phi & \cos\phi
 \end{bmatrix}
+\end{gather*}
 $$
+
 则最终R为：
 $$
 R = \begin{bmatrix}
  \cos\psi \cos\theta & \cos\psi \sin\theta \sin\phi - \sin\psi \cos\phi & \cos\psi \sin\theta \cos\phi + \sin\psi \sin\phi \\
  \sin\psi \cos\theta & \sin\psi \sin\theta \sin\phi + \cos\psi \cos\phi & \sin\psi \sin\theta \cos\phi - \cos\psi \sin\phi \\
- - \sin\theta & \cos\theta \sin\phi & \cos\theta \cos\phi
+ -\sin\theta & \cos\theta \sin\phi & \cos\theta \cos\phi
 \end{bmatrix}
 $$
 读者看到这么长的旋转矩阵可能会大脑发怵，这么长的矩阵，这么多三角函数应该怎么去使用呢？对此不必担心，因为我们只需要用到该矩阵的**一部分元素**。相信读者应该注意到四元数也有一个**旋转矩阵**，我们就要**用四元数求出欧拉角**。
@@ -250,27 +256,18 @@ $$
 
 1. 计算俯仰角***θ*（Pitch）**:
 
-   从 R*R* 的第三行第一列 r31=−sin⁡θ，得：
-   $$
-   \theta = \arcsin(- r_{31})
-   $$
+   从 R*R* 的第三行第一列 r31=−sin⁡θ，得：$\theta = \arcsin(- r_{31})$
 
 2. 计算偏航角***ψ*（Yaw）**：
 
-   从 R*R* 的第一行和第二行的第一列：
-   $$
-   \psi = atan2(r_{21}, r_{11})
-   $$
+   从 R*R* 的第一行和第二行的第一列：$\psi = atan2(r_{21}, r_{11})$
 {% notel green  info %}
 其中 atan2(y,x)atan2(*y*,*x*) 是四象限反正切函数。
 {% endnotel %}
 
 3. 计算翻滚角***ϕ*（Roll）**：
 
-   从 R*R* 的第三行第二列和第三列：
-   $$
-   \theta = atan2(r_{32},r_{33})
-   $$
+   从 R*R* 的第三行第二列和第三列：$\theta = atan2(r_{32},r_{33})$
 
 恭喜各位读者，到此时已完成了理论部分的学习，接下来是应用的部分。因为主要应用在于IMU的角度解算，所以我给出了C语言代码。
 
