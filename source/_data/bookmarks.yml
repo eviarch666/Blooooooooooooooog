@@ -31,3 +31,8 @@
       link: https://chat.openai.com # 书签链接地址
       description: OpenAI 的 AI 对话助手
       image: https://chat.openai.com/favicon.ico # 网站图标地址
+
+    - name: Latex Live Editor
+      link: https://www.latexlive.com/
+      description: 在线Latex公式编辑器
+      image: 
