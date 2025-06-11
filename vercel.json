@@ -1,0 +1,7 @@
+{
+  "build": {
+    "env": {
+      "PANDOC_VERSION": "default"
+    }
+  }
+}
