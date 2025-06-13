@@ -220,12 +220,12 @@ navbar:
     #   path: /masonry/
 
     Bookmarks:
-      icon: fa-solid fa-bookmark #图标
       path: /bookmarks/
+      icon: fa-regular fa-bookmark #图标
 
     Friends:
       path: /links/
-      icon: fa-solid fa-rss
+      icon: fa-solid fa-link
 
     About: # 一级菜单栏名称
       icon: fa-regular fa-user # Fontawesome图标名称（可选）
