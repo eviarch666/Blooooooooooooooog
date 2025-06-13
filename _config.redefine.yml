@@ -207,6 +207,10 @@ navbar:
       path: / 
       icon: fa-regular fa-house # can be empty
 
+    Moments:
+        path: /essays
+        icon: fa-regular fa-comment
+
     # Archives: 
     #   path: /archives 
     #   icon: fa-regular fa-archive # can be empty
