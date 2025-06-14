@@ -7,13 +7,31 @@
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 
+# Gather all variables that will frequently change together.
+data_set:
+  info_subtitle: &info_subtitle "Stay with me."
+  sidebar_announcement: &sidebar_announcement "current status: Happy"
+  subtitle_string: &subtitle_string
+    - "求知若渴，虚心若愚"
+    - "你所做的事情或许无人在意，但只要你仍追求完美，你就终将掌握连专家也望而兴叹的技能"
+    - "\"拉绳子或者割断绳索，但无论你做什么，都不要犹豫\" --Death Stranding"
+    - "共赴山海"
+    - "回首望来路，尘埃映星河 --Zachary"
+    - "天空越黑，星星越亮 --小农帽"
+    - "青春就像月亮，时圆时缺，但是只要圆过一次，我们的青春就没有遗憾 --Zachary"
+    - "不能信任那些 Terminal 或 Editor 用白底的人"
+    - "软件靠重启，硬件靠插拔"
+    - "\"绳索和棍棒是人类最早发明的工具。绳索可以留住美好，棍棒则可以驱赶危险。两者皆是我们最早的朋友，皆由我们创造。有人的地方，就有绳索与棍棒。--摘自 安部公房《绳》\""
+    - "总有一天我会没办法继续照顾你，你必须自己做出决定，决定自己究竟是谁，这个世界不喜欢与众不同的人马库斯，不要让别人告诉你，该成为什么样的人。 --Detroit Become Human"
+
+
 # BASIC INFORMATION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start
 # Docs: https://redefine-docs.ohevan.com/basic/info
 info:
   # Site title
   title: Eviarch's blog
   # Site subtitle
-  subtitle: Stay with me.
+  subtitle: *info_subtitle
   # Author name
   author: Eviarch
   # Site URL
@@ -131,10 +149,7 @@ home_banner:
   title: "It's Eviarch's blog, sharing things about study and daily life"
   # Home banner subtitle
   subtitle:
-    text: ["求知若渴，虚心若愚", "你所做的事情或许无人在意，但只要你仍追求完美，你就终将掌握连专家也望而兴叹的技能", 
-          "\"拉绳子或者割断绳索，但无论你做什么，都不要犹豫\" --Death Stranding", "共赴山海",
-          "回首望来路，尘埃映星河 --Zachary", "天空越黑，星星越亮 --小农帽",
-          "青春就像月亮，时圆时缺，但是只要圆过一次，我们的青春就没有遗憾 --Zachary"] # subtitle text, array
+    text: *subtitle_string
     hitokoto:  # 一言配置
       enable: false # Whether to enable hitokoto
       show_author: false # Whether to show author
@@ -267,7 +282,7 @@ home:
     enable: true # Whether to enable sidebar
     position: left # Sidebar position. left, right
     first_item: info # First item in sidebar. menu, info
-    announcement: "Stay with me" # Announcement text
+    announcement: *sidebar_announcement # Announcement text
     show_on_mobile: true # Whether to show sidebar navigation on mobile sheet menu
     links:
       Archives: 
@@ -356,8 +371,8 @@ articles:
     # Whether to enable article recommendation
     enable: false
     # Article recommendation title
-    title: 推荐阅读
-    # Max number of articles to display
+    title: Recommended article
+ # Max number of articles to display
     limit: 3
     # Max number of articles to display mobile
     mobile_limit: 2
