@@ -33,3 +33,4 @@ source
 
 - this project use MIT license
 - blog posts use [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0) license
+- posts that in **notes** folder also use [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0) license
