@@ -1,6 +1,6 @@
 # FOC理论准备
 
-前言：作者本人也是在网上找资料学习的这部分内容，如有错误还请指正。本文中有对其他作者的文章的引用说明，具体引用请看文章中说明，如有忘记声明处还请大家指出。这里也非常推荐大家去看看[稚晖君的教程](https://zhuanlan.zhihu.com/p/147659820)，写得非常详尽。
+前言：作者本人也是在网上找资料学习的这部分内容，如有错误还请指正。本文中有对其他作者的文章的引用说明，如有忘记声明处还请大家指出。这里也非常推荐大家去看看[稚晖君的教程](https://zhuanlan.zhihu.com/p/147659820)，写得非常详尽，本文也有多处地方引用此文章的语句。
 
 ## 电机的机械角度和电角度
 
@@ -46,21 +46,56 @@
 
 #### PWM, SPWM, SVPWM
 
-1. PWM（Pulse Width Modulation 脉冲宽度调制）
+##### PWM（Pulse Width Modulation 脉冲宽度调制）
 
-   按一定规律改变脉冲序列的脉冲宽度，以调节输出量和波形的一种调制方式。PWM是脉冲宽度调制也就是具有一定脉冲宽度的连续的方波组成。![PWM](E:\personal_project\Website\eviarch-blog\notes\UnfinishedNotes\FOC理论准备\PWM.png)
+按一定规律改变脉冲序列的脉冲宽度，以调节输出量和波形的一种调制方式。PWM是脉冲宽度调制也就是具有一定脉冲宽度的连续的方波组成。![PWM](E:\personal_project\Website\eviarch-blog\notes\UnfinishedNotes\FOC理论准备\PWM.png)
 
-2. SPWM（Sinusoidal PWM 正弦脉宽调制）
+##### SPWM（Sinusoidal PWM 正弦脉宽调制）
 
-   该技术是基于PWM的，是对脉冲宽度进行正弦规律排列的调制方式。这样其输出可以近似为正弦波。![SVPWM](E:\personal_project\Website\eviarch-blog\notes\UnfinishedNotes\FOC理论准备\SVPWM.png)
+该技术是基于PWM的，是对脉冲宽度进行正弦规律排列的调制方式。这样其输出可以近似为正弦波。![SVPWM](E:\personal_project\Website\eviarch-blog\notes\UnfinishedNotes\FOC理论准备\SVPWM.png)
 
-   其产生的方式为正弦波和三角波相交而成，其中正弦波相当于调制波，三角波相当于载波，其生成过程如下图。![SVPWM_Generate](E:\personal_project\Website\eviarch-blog\notes\UnfinishedNotes\FOC理论准备\SVPWM_Generate.webp)
+其产生的方式为正弦波和三角波相交而成，其中正弦波相当于调制波，三角波相当于载波，其生成过程如下图。![SVPWM_Generate](E:\personal_project\Website\eviarch-blog\notes\UnfinishedNotes\FOC理论准备\SVPWM_Generate.webp)
 
-   这里我们要注意，三角波（载波）的振幅要大于正弦波（调制波）的振幅，否则正弦波的波峰和波谷就会被“削去”。![SVPWM_FalseGenerate](E:\personal_project\Website\eviarch-blog\notes\UnfinishedNotes\FOC理论准备\SVPWM_FalseGenerate.webp)
+这里我们要注意，三角波（载波）的振幅要大于正弦波（调制波）的振幅，否则正弦波的波峰和波谷就会被“削去”。![SVPWM_FalseGenerate](E:\personal_project\Website\eviarch-blog\notes\UnfinishedNotes\FOC理论准备\SVPWM_FalseGenerate.webp)
 
-3. SVPWM（Space Vector Pulse Width Modulation 电压空间矢量PWM）
+##### SVPWM（Space Vector Pulse Width Modulation 电压空间矢量PWM）
 
-   SVPWM和SPWM虽然名字很像，但是其时没有很大的关系。SPWM着重于生成一个可以近似于正弦波的PWM波，对于电机控制来说其关注点只在于它自己需要调制的那个正弦波。而SVPWM则是关注于电机整体，使得输出电压波形尽可能接近于理想的正弦波形，**着眼于如何使电机获得理想圆形磁链轨迹！**对于目前来说，只需要了解这个名词即可，具体学习还在本文后面。
+SVPWM和SPWM虽然名字很像，但是其时没有很大的关系。SPWM着重于生成一个可以近似于正弦波的PWM波，对于电机控制来说其关注点只在于它自己需要调制的那个正弦波。而SVPWM则是关注于电机整体，使得输出电压波形尽可能接近于理想的正弦波形，**着眼于如何使电机获得理想圆形磁链轨迹！**要了解SVPWM就得先了解什么是**空间电压矢量**。
+
+首先我们要看逆变器的电路原理图：
+
+![Inverter_Circuit](E:\personal_project\Website\eviarch-blog\notes\UnfinishedNotes\FOC理论准备\Inverter_Circuit.png)
+
+为了便于理解，我们将PMSM的线圈展开绘制出来：
+
+![Inverter_Circuit_with_Coil](E:\personal_project\Website\eviarch-blog\notes\UnfinishedNotes\FOC理论准备\Inverter_Circuit_with_Coil.png)
+
+**SVPWM算法实际上计算的是上图所示逆变器的六个开关何时导通，何时切断。**我们可以看到这六个开关管是两两一组的，也就是形成了三组。对于每一组开关管，与$V_{D}$高电位相连的我们称之为上桥臂，而与$V_{D}$的低电位相连的我们称之为下桥臂，每一组这个整体我们称之为半桥。
+
+而对于每一个半桥都有两个状态：
+
+- 上桥臂导通，下桥臂截止（定义为状态1）
+- 下桥臂导通，上桥臂截止（定义为状态0）
+
+三个半桥就有$2^{3}$个状态，也就是000、001、010、011、100、101、110、111
+
+**空间电压矢量**：我们将上述的三个桥的状态的组合就定义为空间电压矢量$U_{n} = (S_{a}, S_{b}, S_{c})$。之中有6个非零矢量和2个零矢量（$U_{0} = (0,0,0),\quad U_{7} = (1,1,1)$）可以看出零矢量状态下电机三相间电压都为0不产生转矩。我们将矢量画在ABC坐标系下（也就是由三相电流组成的坐标系中）
+
+![Space_Vector_Diagram](E:\personal_project\Website\eviarch-blog\notes\UnfinishedNotes\FOC理论准备\Space_Vector_Diagram.png)
+
+> 其中，$V_{1}(1,0,0)$与$I_{A}$相同，$V_{3}(0,1,0)$与$I_{B}$方向相同，$V_{5}(0,0,1)$与$I_{C}$方向相同。
+
+它们的端点组成了一个正六边形，同时把平面划分成了六个扇区（也就是图中的（1）、（2）、（3）、（4）、（5）、（6））在每一个扇区，选择相邻两个电压矢量以及零矢量，按照**伏秒平衡原则**来合成每个扇区内的任意电压矢量。这也正是源自于PWM的核心思想，**合理地配置不同基向量在一个周期中的占空比，就可以合成出等效的任意空间电压矢量**
+$$
+\int_{0}^{T} U_{ref}dt =  \int_{0}^{T_{x}} U_{x}dt + \int_{T_{x}}^{T_{x}+T_{y}} U_{y}dt +
+\int_{T_{x}+T_{y}}^{T} U_{0}^{*}dt
+$$
+写成离散表达式如下：
+$$
+U_{ref} \cdot  T = U_{x} \cdot T_{x} + U_{y} \cdot T_{y} + U_{0}^{*} \cdot T_{0}^{*}
+$$
+
+> $U_{0}^{*}$指的是两个零矢量，可以是$U_{0}$也可以是$U_{7}$，零矢量的选择比较灵活，通过合理地配置零矢量可以让空间电压矢量的切换更平顺，可最大限度地减少开关次数，尽可能避免在负载电流较大的时刻的开关动作，最大限度地减少开关损耗。
 
 #### Clark变换，Park变换，反Park变换
 
@@ -75,4 +110,28 @@ $$
 \begin{bmatrix} \frac{2}{3} & -\frac{1}{3} & -\frac{1}{3} \\ 0 & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{3}}\end{bmatrix}
 $$
 
+> K为何是$\frac{2}{3}$？
+>
+> **Clark 变换的矩阵本身并不保持矢量长度（不是正交变换）**，所以变换前后的矢量模长（幅值）会变化。为了让变换前后的幅值不变，就需要再乘一个比例系数。
+>
+> 若要进行等功率Clark变换则$K = \sqrt\frac{2}{3}$
+>
+> 若想更深入了解可查看[这篇文章](https://zhuanlan.zhihu.com/p/293470912)
 
+经过如上Clark变换，就成功将三相电流变为了新的两相电流，但对于控制两相正弦波电流来说仍然是一件困难的事情。
+
+##### Park变换
+
+若要将正弦的两个变量转为常量来控制，则需要让坐标系跟着两个变量一起旋转。也就是坐标系和新的两相电流的矢量相对静止了（这么表述肯定不严谨，但是最本质的思想是这个意思）。其变换过程如下：
+$$
+\begin{bmatrix} I_{d} \\ I_{q}\end{bmatrix} = \begin{bmatrix} \cos\theta & \sin\theta \\ -\sin\theta & \cos\theta\end{bmatrix}\begin{bmatrix}I_{\alpha} \\I_{\beta}\end{bmatrix}
+$$
+接下来我们就可以对$I_{d}$和$I_{q}$来进行控制了，经过如上变换将大大降低我们对电流控制的难度。而这两个量所代表的物理意义为转子旋转的**径向**和**切向**这两个方向的变量。其中：$I_{q}$为切向电流分量，$I_{d}$为径向电流分量，我们也需要尽力把它控制为0，
+
+##### 反Park变换
+
+即为Park变换的逆变换
+$$
+\begin{bmatrix} \cos (-\theta) & \sin (-\theta) \\ -\sin (-\theta) & \cos (-\theta) \end{bmatrix}
+= \begin{bmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{bmatrix}
+$$
