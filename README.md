@@ -1,6 +1,6 @@
 # Eviarch's blog
 
-[![CI build](https://github.com/Yttehs-HDX/Blooooooooooooooog/actions/workflows/ci-build.yml/badge.svg)](https://github.com/Yttehs-HDX/Blooooooooooooooog/actions/workflows/ci-build.yml)
+[![CI build](https://github.com/eviarch666/Blooooooooooooooog/actions/workflows/ci-build.yml/badge.svg)](https://github.com/eviarch666/Blooooooooooooooog/actions/workflows/ci-build.yml)
 
 ## Description
 
