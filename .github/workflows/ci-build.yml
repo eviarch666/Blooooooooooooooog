@@ -1,0 +1,44 @@
+name: CI build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    permissions:
+      contents: write
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Setup pandoc
+        uses: pandoc/actions/setup@v1
+
+      - name: Set up Git user
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Build project
+        run: make deploy
+
+      - name: Commit to deploy branch
+        run: |
+          git checkout --orphan deploy
+          git rm -rf .
+          cp -r public/. .
+          git add .
+          git commit -m "Deploy from main: ${GITHUB_SHA}"
+          git push --force origin deploy
