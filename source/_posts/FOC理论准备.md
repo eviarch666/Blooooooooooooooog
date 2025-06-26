@@ -14,7 +14,7 @@ mathjax: true
 {% endnotel %}
 
 {% notel yellow Warn %}
-由于网页渲染出来的latex公式无法正确换行，本文件将用HTML代替latex公式，这也就导致本文件源码可读性非常差，若需要阅读源文件还请看notes文件夹下的[**markdown文件**](https://github.com/eviarch666/Blooooooooooooooog/blob/main/notes/IMU%E5%9B%9B%E5%85%83%E6%95%B0%E8%A7%A3%E7%AE%97.md)。
+由于网页渲染出来的latex公式无法正确换行，本文件将用HTML代替latex公式，这也就导致本文件源码可读性非常差，若需要阅读源文件还请看notes文件夹下的[**markdown文件**](https://github.com/eviarch666/Blooooooooooooooog/blob/main/notes/FOC%E7%90%86%E8%AE%BA%E5%87%86%E5%A4%87.md)。
 {% endnotel %}
 
 ## 电机的机械角度和电角度
