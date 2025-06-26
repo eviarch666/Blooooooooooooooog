@@ -1,5 +1,7 @@
 # Eviarch's blog
 
+[![CI build](https://github.com/eviarch666/Blooooooooooooooog/actions/workflows/ci-build.yml/badge.svg)](https://github.com/eviarch666/Blooooooooooooooog/actions/workflows/ci-build.yml)
+
 ## Description
 
 This is Eviarch’s personal blog.
