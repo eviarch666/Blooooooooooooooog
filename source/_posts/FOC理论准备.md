@@ -13,11 +13,15 @@ mathjax: true
 作者本人也是在网上找资料学习的这部分内容，如有错误还请指正。本文中有对其他作者的文章的引用说明，如有忘记声明处还请大家指出。这里也非常推荐大家去看看[稚晖君的教程](https://zhuanlan.zhihu.com/p/147659820)，写得非常详尽，本文也有多处地方引用此文章的语句。
 {% endnotel %}
 
+{% notel yellow Warn %}
+由于网页渲染出来的latex公式无法正确换行，本文件将用HTML代替latex公式，这也就导致本文件源码可读性非常差，若需要阅读源文件还请看notes文件夹下的[**markdown文件**](https://github.com/eviarch666/Blooooooooooooooog/blob/main/notes/IMU%E5%9B%9B%E5%85%83%E6%95%B0%E8%A7%A3%E7%AE%97.md)。
+{% endnotel %}
+
 ## 电机的机械角度和电角度
 
 由硬件篇电机部分所描述的，极数的差异而产生了机械角度和电角度（电周期）的概念。机械角度”就是电机旋转一圈的空间几何角度。转子轴从某个位置开始旋转并返回到原位置的角度是360度。而电角度则是将对绕组（线圈）施加电压的开关的一个切换周期视为360度。
 
-> 如果是2极3槽的电机，那么其机械角度和电角度是一致的。而如果是4极6槽，则其机械角度是360度，其电角度是两个周期（也可以表达为“当机械角度为180度时，电角度达到360度”，或者说“在一个电周期内转子只转半圈”）。![ElectricAngle](E:\personal_project\Website\eviarch-blog\notes\UnfinishedNotes\FOC理论准备\ElectricAngle.png)
+> 如果是2极3槽的电机，那么其机械角度和电角度是一致的。而如果是4极6槽，则其机械角度是360度，其电角度是两个周期（也可以表达为“当机械角度为180度时，电角度达到360度”，或者说“在一个电周期内转子只转半圈”）。![ElectricAngle](/post_images/FOC理论准备/ElectricAngle.png)
 
 对于电机的编码器，其角度都是来表示转子的机械角度位置。而电机驱动器输出的电信号则是基于电角度的，因为电信号源于开关一个切换周期的反复。**角度的概念已经变得非常重要**，所以我们需要清楚地了解这些概念以及它们之间的关系。
 
@@ -63,15 +67,15 @@ mathjax: true
 
 ##### PWM（Pulse Width Modulation 脉冲宽度调制）
 
-按一定规律改变脉冲序列的脉冲宽度，以调节输出量和波形的一种调制方式。PWM是脉冲宽度调制也就是具有一定脉冲宽度的连续的方波组成。![PWM](E:\personal_project\Website\eviarch-blog\notes\UnfinishedNotes\FOC理论准备\PWM.png)
+按一定规律改变脉冲序列的脉冲宽度，以调节输出量和波形的一种调制方式。PWM是脉冲宽度调制也就是具有一定脉冲宽度的连续的方波组成。![PWM](/post_images/FOC理论准备/PWM.png)
 
 ##### SPWM（Sinusoidal PWM 正弦脉宽调制）
 
-该技术是基于PWM的，是对脉冲宽度进行正弦规律排列的调制方式。这样其输出可以近似为正弦波。![SVPWM](E:\personal_project\Website\eviarch-blog\notes\UnfinishedNotes\FOC理论准备\SVPWM.png)
+该技术是基于PWM的，是对脉冲宽度进行正弦规律排列的调制方式。这样其输出可以近似为正弦波。![SVPWM](/post_images/FOC理论准备/SVPWM.png)
 
-其产生的方式为正弦波和三角波相交而成，其中正弦波相当于调制波，三角波相当于载波，其生成过程如下图。![SVPWM_Generate](E:\personal_project\Website\eviarch-blog\notes\UnfinishedNotes\FOC理论准备\SVPWM_Generate.webp)
+其产生的方式为正弦波和三角波相交而成，其中正弦波相当于调制波，三角波相当于载波，其生成过程如下图。![SVPWM_Generate](/post_images/FOC理论准备/SVPWM_Generate.webp)
 
-这里我们要注意，三角波（载波）的振幅要大于正弦波（调制波）的振幅，否则正弦波的波峰和波谷就会被“削去”。![SVPWM_FalseGenerate](E:\personal_project\Website\eviarch-blog\notes\UnfinishedNotes\FOC理论准备\SVPWM_FalseGenerate.webp)
+这里我们要注意，三角波（载波）的振幅要大于正弦波（调制波）的振幅，否则正弦波的波峰和波谷就会被“削去”。![SVPWM_FalseGenerate](/post_images/FOC理论准备/SVPWM_FalseGenerate.webp)
 
 ##### SVPWM（Space Vector Pulse Width Modulation 电压空间矢量PWM）
 
@@ -79,11 +83,11 @@ SVPWM和SPWM虽然名字很像，但是其时没有很大的关系。SPWM着重�
 
 首先我们要看逆变器的电路原理图：
 
-![Inverter_Circuit](E:\personal_project\Website\eviarch-blog\notes\UnfinishedNotes\FOC理论准备\Inverter_Circuit.png)
+![Inverter_Circuit](/post_images/FOC理论准备/Inverter_Circuit.png)
 
 为了便于理解，我们将PMSM的线圈展开绘制出来：
 
-![Inverter_Circuit_with_Coil](E:\personal_project\Website\eviarch-blog\notes\UnfinishedNotes\FOC理论准备\Inverter_Circuit_with_Coil.png)
+![Inverter_Circuit_with_Coil](/post_images/FOC理论准备/Inverter_Circuit_with_Coil.png)
 
 **SVPWM算法实际上计算的是上图所示逆变器的六个开关何时导通，何时切断。**我们可以看到这六个开关管是两两一组的，也就是形成了三组。对于每一组开关管，与<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>V</mi><mrow><mi>D</mi></mrow></msub></math>高电位相连的我们称之为上桥臂，而与<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>V</mi><mrow><mi>D</mi></mrow></msub></math>的低电位相连的我们称之为下桥臂，每一组这个整体我们称之为半桥。
 
@@ -96,7 +100,7 @@ SVPWM和SPWM虽然名字很像，但是其时没有很大的关系。SPWM着重�
 
 - **空间电压矢量**：我们将上述的三个桥的状态的组合就定义为空间电压矢量<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>U</mi><mrow><mi>n</mi></mrow></msub><mo>=</mo><mo stretchy="false">(</mo><msub><mi>S</mi><mrow><mi>a</mi></mrow></msub><mo>,</mo><msub><mi>S</mi><mrow><mi>b</mi></mrow></msub><mo>,</mo><msub><mi>S</mi><mrow><mi>c</mi></mrow></msub><mo stretchy="false">)</mo></math>。之中有6个非零矢量和2个零矢量（<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>U</mi><mrow><mn>0</mn></mrow></msub><mo>=</mo><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo stretchy="false">)</mo><mo>,</mo><mstyle scriptlevel="0"><mspace width="1em"></mspace></mstyle><msub><mi>U</mi><mrow><mn>7</mn></mrow></msub><mo>=</mo><mo stretchy="false">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false">)</mo></math>）可以看出零矢量状态下电机三相间电压都为0不产生转矩。我们将矢量画在ABC坐标系下（也就是由三相电流组成的坐标系中）
 
-![Space_Vector_Diagram](E:\personal_project\Website\eviarch-blog\notes\UnfinishedNotes\FOC理论准备\Space_Vector_Diagram.png)
+![Space_Vector_Diagram](/post_images/FOC理论准备/Space_Vector_Diagram.png)
 
 > 其中，<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>V</mi><mrow><mn>1</mn></mrow></msub><mo stretchy="false">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo stretchy="false">)</mo></math>与<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>I</mi><mrow><mi>A</mi></mrow></msub></math>相同，<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>V</mi><mrow><mn>3</mn></mrow></msub><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false">)</mo></math>与<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>I</mi><mrow><mi>B</mi></mrow></msub></math>方向相同，<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>V</mi><mrow><mn>5</mn></mrow></msub><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false">)</mo></math>与<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>I</mi><mrow><mi>C</mi></mrow></msub></math>方向相同。
 
@@ -179,15 +183,16 @@ SVPWM和SPWM虽然名字很像，但是其时没有很大的关系。SPWM着重�
 
 <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow data-mjx-texclass="INNER"><mo data-mjx-texclass="OPEN">[</mo><mtable columnspacing="1em" rowspacing="4pt"><mtr><mtd><mi>cos</mi><mo data-mjx-texclass="NONE">⁡</mo><mo stretchy="false">(</mo><mo>−</mo><mi>θ</mi><mo stretchy="false">)</mo></mtd><mtd><mi>sin</mi><mo data-mjx-texclass="NONE">⁡</mo><mo stretchy="false">(</mo><mo>−</mo><mi>θ</mi><mo stretchy="false">)</mo></mtd></mtr><mtr><mtd><mo>−</mo><mi>sin</mi><mo data-mjx-texclass="NONE">⁡</mo><mo stretchy="false">(</mo><mo>−</mo><mi>θ</mi><mo stretchy="false">)</mo></mtd><mtd><mi>cos</mi><mo data-mjx-texclass="NONE">⁡</mo><mo stretchy="false">(</mo><mo>−</mo><mi>θ</mi><mo stretchy="false">)</mo></mtd></mtr></mtable><mo data-mjx-texclass="CLOSE">]</mo></mrow><mo>=</mo><mrow data-mjx-texclass="INNER"><mo data-mjx-texclass="OPEN">[</mo><mtable columnspacing="1em" rowspacing="4pt"><mtr><mtd><mi>cos</mi><mo data-mjx-texclass="NONE">⁡</mo><mi>θ</mi></mtd><mtd><mo>−</mo><mi>sin</mi><mo data-mjx-texclass="NONE">⁡</mo><mi>θ</mi></mtd></mtr><mtr><mtd><mi>sin</mi><mo data-mjx-texclass="NONE">⁡</mo><mi>θ</mi></mtd><mtd><mi>cos</mi><mo data-mjx-texclass="NONE">⁡</mo><mi>θ</mi></mtd></mtr></mtable><mo data-mjx-texclass="CLOSE">]</mo></mrow></math>
 
-—
+---
 
 ### FOC控制流程
 
 先附上FOC控制流程的PID环
 
-![FOC_PID_White](E:\personal_project\Website\eviarch-blog\notes\UnfinishedNotes\FOC理论准备\FOC_PID_White.png)
+![FOC_PID_White](/post_images/FOC理论准备/FOC_PID_White.png)
 
 > 图片中Target开头的代表设定值，即用户希望的值的大小
 
 该PID是常见的位置-速度-电流三环控制，其中位置可以只用P项或者PI项。在位置控制中，由于电机转速很低，所以编码器微分得到的角速度不一定准确，因此往往去掉速度环而直接使用位置-电流双环控制。可以看到，前文的知识点都是在为FOC控制的电流环服务的，由此可见电流环的重要程度非常高。
 
+接下来的任务就是把理论付诸实践。
