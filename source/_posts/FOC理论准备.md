@@ -3,7 +3,7 @@ title: FOC理论准备
 date: 2025-06-26 17:01:54
 tags: ["Hardware", "FOC", "SVPWM", "Motor drive", "PID"]
 categories: ["Hardware", "Motor drive"]
-thumbnail: ""
+thumbnail: "/post_images/FOC理论准备/PMSM.jpg"
 mathjax: true
 ---
 
