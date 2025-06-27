@@ -188,11 +188,11 @@ home_banner:
     style: default # default, reverse, center
     # Social links
     links:
-      github: https://github.com/eviarch666 # your GitHub URL
+      github: https://github.com/eviarch # your GitHub URL
       instagram:  # your Instagram URL
       zhihu:  # your ZhiHu URL
       twitter: https://x.com/eviarch74703 # your twitter URL
-      email: eviarch666@gmail.com # your email
+      email: eviarch@gmail.com # your email
       fa-solid fa-tower-broadcast: https://www.youtube.com/@eviarch
       # ...... # you can add more
     # Social links with QRcode drawers
@@ -245,7 +245,7 @@ navbar:
     About: # 一级菜单栏名称
       icon: fa-regular fa-user # Fontawesome图标名称（可选）
       submenus: # 二级菜单栏
-        Blog Repo: https://github.com/eviarch666/Blooooooooooooooog
+        Blog Repo: https://github.com/eviarch/Blooooooooooooooog
 
 
     # Status: 
@@ -414,7 +414,7 @@ comment:
       region: # Twikoo region. can be empty
     # Giscus comment system. See https://giscus.app/
     giscus:
-      repo: "eviarch666/Blooooooooooooooog" # Github repository name e.g. EvanNotFound/hexo-theme-redefine
+      repo: "eviarch/Blooooooooooooooog" # Github repository name e.g. EvanNotFound/hexo-theme-redefine
       repo_id: "R_kgDOO4jG4g" # Github repository id
       category: "Announcements" # Github discussion category
       category_id: "DIC_kwDOO4jG4s4CrP-8" # Github discussion category id
