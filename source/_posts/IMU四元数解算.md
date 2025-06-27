@@ -2,7 +2,7 @@
 title: IMU四元数解算
 date: 2025-06-10 17:19:32
 tags: ["Hardware", "Eular Angle", "Quaternion"]
-categories: [Hardware]
+categories: ["Hardware", "Sensor", "Sensor Drive"]
 thumbnail: "/post_images/IMU四元数解算/机械IMU.jpeg"
 mathjax: true
 ---
