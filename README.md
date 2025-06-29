@@ -19,16 +19,16 @@ source
 ├─essays
 ├─links
 ├─masonry
-├─post_images			 # blog posts' markdown file image folder
+├─post_images                   # blog posts' markdown file image folder
 │  ├─post_one_image_folder
 │  └─post_two_image_folder
 ├─tags
 ├─_data
-│  ├─bookmarks.yml		# bookmarks' file
-│  ├─essays.yml         # essays' file(Moments' page)
-│  ├─links.yml			# friendship links' file
-│  └─masonry.yml		# masonrys' file(haven't use yet)
-└─_posts			# blog posts' markdown file store here
+│  ├─bookmarks.yml              # bookmarks' file
+│  ├─essays.yml                 # essays' file(Moments' page)
+│  ├─links.yml                  # friendship links' file
+│  └─masonry.yml                # masonrys' file(haven't use yet)
+└─_posts                        # blog posts' markdown file store here
 ~~~
 
 ## License
